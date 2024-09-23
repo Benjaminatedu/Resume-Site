@@ -18,7 +18,7 @@ const Footer = () => {
         wrap="wrap"
       >
         {/* Left Section - Logo or Name */}
-        <Text fontWeight="bold" fontSize="lg">
+        <Text fontSize="lg">
           © 2024 Benjamin Bell
         </Text>
 
