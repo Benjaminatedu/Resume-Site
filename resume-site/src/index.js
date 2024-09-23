@@ -1,21 +1,23 @@
-// index.js
 import { ColorModeScript } from '@chakra-ui/react';
 import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { ChakraProvider } from '@chakra-ui/react'; // Import ChakraProvider
+import { ChakraProvider } from '@chakra-ui/react';
+import { BrowserRouter as Router } from 'react-router-dom'; // Import BrowserRouter
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
-import theme from './theme/themes'; // Import the custom theme
+import theme from './theme/themes';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
 root.render(
   <StrictMode>
-    <ChakraProvider theme={theme}> {/* Wrap App with ChakraProvider and apply the theme */}
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} /> {/* Optional: Setup color mode */}
-      <App />
+    <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <Router> {/* Wrap App with Router for routing */}
+        <App />
+      </Router>
     </ChakraProvider>
   </StrictMode>
 );
@@ -27,5 +29,4 @@ serviceWorker.unregister();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
