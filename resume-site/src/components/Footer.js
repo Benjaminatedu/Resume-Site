@@ -1,7 +1,7 @@
 // src/components/Footer.js
 import React from 'react';
 import { Box, Flex, Text, Link, useColorModeValue } from '@chakra-ui/react';
-import { FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa'; // Import the desired icons
+import { FaGithub, FaLinkedin } from 'react-icons/fa'; // Import the desired icons
 
 const Footer = () => {
   const footerBackground = useColorModeValue('brand.backgroundSecondary', '#6A7164');
