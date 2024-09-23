@@ -15,7 +15,7 @@ root.render(
   <StrictMode>
     <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <Router> {/* Use HashRouter here */}
+      <Router> {/* Use HashRouter to handle the paths correctly */}
         <App />
       </Router>
     </ChakraProvider>

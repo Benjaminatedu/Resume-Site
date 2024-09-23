@@ -44,10 +44,10 @@ const Header = () => {
       </Box>
 
       <Flex gap="4">
-        {/* Using the reusable ButtonLink component */}
-        <ButtonLink href="/#" label="Home" bg={buttonBackground} color={textColor} />
-        <ButtonLink href="/#about" label="About" bg={buttonBackground} color={textColor} />
-        <ButtonLink href="/#projects" label="Projects" bg={buttonBackground} color={textColor} />
+        {/* Update ButtonLink components to ensure hash routing consistency */}
+        <ButtonLink href="#/" label="Home" bg={buttonBackground} color={textColor} />
+        <ButtonLink href="#/about" label="About" bg={buttonBackground} color={textColor} />
+        <ButtonLink href="#/projects" label="Projects" bg={buttonBackground} color={textColor} />
       </Flex>
     </Flex>
   );
