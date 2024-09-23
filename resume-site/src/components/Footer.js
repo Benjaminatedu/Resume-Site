@@ -24,13 +24,13 @@ const Footer = () => {
 
         {/* Center Section - Navigation Links */}
         <Flex gap={4}>
-          <Link href="/" _hover={{ textDecoration: 'underline' }}>
+          <Link href="/#" _hover={{ textDecoration: 'underline' }}>
             Home
           </Link>
-          <Link href="/about" _hover={{ textDecoration: 'underline' }}>
+          <Link href="/#about" _hover={{ textDecoration: 'underline' }}>
             About
           </Link>
-          <Link href="/projects" _hover={{ textDecoration: 'underline' }}>
+          <Link href="/#projects" _hover={{ textDecoration: 'underline' }}>
             Projects
           </Link>
         </Flex>

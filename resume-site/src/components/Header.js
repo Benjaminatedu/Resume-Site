@@ -45,9 +45,9 @@ const Header = () => {
 
       <Flex gap="4">
         {/* Using the reusable ButtonLink component */}
-        <ButtonLink href="/" label="Home" bg={buttonBackground} color={textColor} />
-        <ButtonLink href="/about" label="About" bg={buttonBackground} color={textColor} />
-        <ButtonLink href="/projects" label="Projects" bg={buttonBackground} color={textColor} />
+        <ButtonLink href="/#" label="Home" bg={buttonBackground} color={textColor} />
+        <ButtonLink href="/#about" label="About" bg={buttonBackground} color={textColor} />
+        <ButtonLink href="/#projects" label="Projects" bg={buttonBackground} color={textColor} />
       </Flex>
     </Flex>
   );
