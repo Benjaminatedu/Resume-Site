@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'; // Remove Router import
+import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';

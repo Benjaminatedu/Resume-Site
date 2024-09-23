@@ -2,7 +2,7 @@ import { ColorModeScript } from '@chakra-ui/react';
 import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { ChakraProvider } from '@chakra-ui/react';
-import { BrowserRouter as Router } from 'react-router-dom'; // Import BrowserRouter
+import { HashRouter as Router } from 'react-router-dom'; // Use HashRouter instead of BrowserRouter
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
@@ -15,7 +15,7 @@ root.render(
   <StrictMode>
     <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <Router> {/* Wrap App with Router for routing */}
+      <Router> {/* Wrap with HashRouter */}
         <App />
       </Router>
     </ChakraProvider>
