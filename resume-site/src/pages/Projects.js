@@ -1,6 +1,6 @@
 // src/pages/Projects.js
 import React from 'react';
-import { Box, Grid, GridItem, Image, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Image, Text, useColorModeValue, Link } from '@chakra-ui/react';
 
 // Sample data for projects - replace this with your actual project data
 const projects = [
@@ -8,21 +8,25 @@ const projects = [
     title: 'Project 1',
     description: 'A brief description of project 1.',
     imageUrl: 'https://via.placeholder.com/300', // Replace with your project image URLs
+    url: 'https://github.com/', // Replace with your GitHub project URL
   },
   {
     title: 'Project 2',
     description: 'A brief description of project 2.',
     imageUrl: 'https://via.placeholder.com/300',
+    url: 'https://github.com/',
   },
   {
     title: 'Project 3',
     description: 'A brief description of project 3.',
     imageUrl: 'https://via.placeholder.com/300',
+    url: 'https://github.com/',
   },
   {
     title: 'Project 4',
     description: 'A brief description of project 4.',
     imageUrl: 'https://via.placeholder.com/300',
+    url: 'https://github.com/',
   },
   // Add more projects as needed
 ];
@@ -52,24 +56,30 @@ const Projects = () => {
       {/* Gallery Layout */}
       <Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={6}>
         {projects.map((project, index) => (
-          <GridItem
+          <Link
             key={index}
-            bg={cardBackground}
-            borderRadius="md"
-            overflow="hidden"
-            boxShadow="md"
-            _hover={{ transform: 'scale(1.05)', transition: '0.3s ease-in-out' }}
+            href={project.url}
+            isExternal
+            _hover={{ textDecoration: 'none' }}
           >
-            <Image src={project.imageUrl} alt={project.title} w="100%" h="200px" objectFit="cover" />
-            <Box p="4">
-              <Text fontSize="xl" fontWeight="bold" color={textColor}>
-                {project.title}
-              </Text>
-              <Text mt="2" color={textColor}>
-                {project.description}
-              </Text>
-            </Box>
-          </GridItem>
+            <GridItem
+              bg={cardBackground}
+              borderRadius="md"
+              overflow="hidden"
+              boxShadow="md"
+              _hover={{ transform: 'scale(1.05)', transition: '0.3s ease-in-out' }}
+            >
+              <Image src={project.imageUrl} alt={project.title} w="100%" h="200px" objectFit="cover" />
+              <Box p="4">
+                <Text fontSize="xl" fontWeight="bold" color={textColor}>
+                  {project.title}
+                </Text>
+                <Text mt="2" color={textColor}>
+                  {project.description}
+                </Text>
+              </Box>
+            </GridItem>
+          </Link>
         ))}
       </Grid>
     </Box>
