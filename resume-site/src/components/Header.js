@@ -44,7 +44,7 @@ const Header = () => {
         position="absolute"
         left="4"
       >
-        Benjamin Bell
+        © BB
       </Box>
 
       <Flex gap="4">
