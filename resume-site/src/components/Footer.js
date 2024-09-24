@@ -22,7 +22,7 @@ const Footer = () => {
         <Text fontSize="md">© 2024 Benjamin Bell</Text>
         <Flex gap={4}>
           <Link href="/resume" _hover={{ textDecoration: 'underline' }}>
-            Resume
+            <Text fontWeight="bold">Resume</Text>
           </Link>
         </Flex>
         <Flex gap={4}>
