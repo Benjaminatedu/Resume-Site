@@ -32,17 +32,26 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Button to open the sidebar */}
+      {/* Button to open the sidebar with gradient background and animation */}
       <Button
         onClick={onOpen}
         position="fixed"
         zIndex="1000"
-        bg="brand.highlightSecondary"
-        _hover={{ bg: 'brand.highlight' }}
+        bgGradient="linear(to-b, #0A654E, #20A76E)" // Gradient background
+        _hover={{
+          bgGradient: 'linear(to-b, #0A654E, #20A76E)',
+          transform: 'scale(1.05)', // Slightly enlarge the button on hover
+          transition: 'transform 0.2s ease-in-out', // Smooth transition effect
+        }}
+        _active={{
+          transform: 'scale(0.95)', // Slightly shrink the button when clicked
+          transition: 'transform 0.1s ease-in-out',
+        }}
         color="white"
         fontSize="2xl"
         height="7vh"
         width="8vw"
+        transition="all 0.2s ease-in-out" // Base transition for smooth animations
       >
         Menu
       </Button>
@@ -62,7 +71,7 @@ const Sidebar = () => {
           >
             Menu
           </DrawerHeader>
-          <DrawerBody>
+          <DrawerBody bg="brand.background">
             <VStack align="start" spacing={4} w="100%">
               {/* Navigation links using the reusable NavLinkButton component */}
               <NavLinkButton href="/Resume-Site/#/" onClick={onClose}>

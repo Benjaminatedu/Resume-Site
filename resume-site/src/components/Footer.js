@@ -1,27 +1,29 @@
 // src/components/Footer.js
 import React from 'react';
-import { Box, Flex, Text, Link, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, Text, Link } from '@chakra-ui/react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
-  const footerBackground = useColorModeValue('brand.highlightSecondary', '#6A7164');
-  const textColor = useColorModeValue('brand.background');
+  // Apply the vertical gradient from #0A654E to #20A76E
+  const footerGradient = 'linear(to-b, #0A654E, #20A76E)'; // Gradient direction from top to bottom
+  const textColor = '#FFFFFF'; // White text for good contrast against the gradient
 
   return (
     <Box
       as="footer"
-      bg={footerBackground}
+      bgGradient={footerGradient} // Apply the gradient background
       color={textColor}
       py={4}
       w="100%"
-      position="relative"  // This ensures it stays in the document flow
       borderTop="1px solid"
-      borderColor={textColor}
+      borderColor="rgba(255, 255, 255, 0.3)" // Subtle border for a clean finish
     >
-      <Flex align="center" justify="space-between" maxW="1200px" mx="auto" px={4} wrap="wrap">
+      <Flex align="center" justify="space-between" maxW="1200px" mx="auto" px={4}>
         <Text fontSize="md">© 2024 Benjamin Bell</Text>
         <Flex gap={4}>
-          <Link href="/Resume-Site/#/resume" _hover={{ textDecoration: 'underline' }}>About</Link>
+          <Link href="/resume" _hover={{ textDecoration: 'underline' }}>
+            Resume
+          </Link>
         </Flex>
         <Flex gap={4}>
           <Link href="https://github.com/Benjaminatedu" isExternal>

@@ -6,11 +6,11 @@ const colors = {
     primary: '#EDF0E5',             // Light, soft green-grey
     secondary: '#D5DBCC',           // A slightly darker variation for contrast
     background: '#EDF0E5',          // Page background
-    backgroundSecondary: '#6A7164', // Dark olive green for the header
+    backgroundSecondary: '#117D62', // Dark olive green for the header
     text: '#201513',                // Black text for high contrast
     textSecondary: '#252B23',       // Darker grey-green for less emphasis
-    highlight: '#718F6B',           // Medium green for highlighting elements
-    highlightSecondary: '#5C6555',  // A slightly muted green for subtle highlights
+    highlight: '#117D62',           // Medium green for highlighting elements
+    highlightSecondary: '#0D1951',  // A slightly muted green for subtle highlights
   },
 };
 
