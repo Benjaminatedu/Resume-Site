@@ -1,18 +1,26 @@
+// src/pages/Home.js
 import React from 'react';
-import { Box, Heading, Text, Button, Flex, Image, useColorModeValue } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import { Box, Heading, Text, Flex, Image, useColorModeValue } from '@chakra-ui/react';
 import heroImage from '../assets/heroimagetest.webp'; // Ensure this path is correct
 
 const Home = () => {
   const background = useColorModeValue('brand.background', '#6A7164');
   const text = useColorModeValue('brand.text', '#EDF0E5');
-  const buttonColor = useColorModeValue('brand.highlight', '#7B8C7B');
 
   return (
-    <Box bg={background} minHeight="100vh" color={text}>
+    <Box bg={background} minHeight="100vh" color={text} overflowX="hidden" p="0" m="0">
       {/* Hero Image Section */}
-      <Box width="100%" height="400px" overflow="hidden">
-        <Image src={heroImage} alt="Hero Image" objectFit="cover" width="100%" height="100%" />
+      <Box
+        as="section"
+        width="100vw"
+        height="400px"
+        overflow="hidden"
+        position="absolute" // Set to absolute to ensure it covers the full top
+        top="0"
+        left="0"
+         // Places the image behind other content if necessary
+      >
+        <Image src={heroImage} alt="Hero Image" objectFit="cover" width="100vw" height="100%" />
       </Box>
 
       {/* Main Content Section with Header Text */}
@@ -24,14 +32,9 @@ const Home = () => {
         textAlign="center"
         maxWidth="600px"
         mx="auto"
-        mt={4} // Adds some space between the image and text
+        mt="400px" // Ensures content appears below the hero image
       >
-        <Heading
-          as="h1"
-          size="2xl"
-          mb={4}
-          fontWeight="bold"
-        >
+        <Heading as="h1" size="2xl" mb={4} fontWeight="bold">
           Welcome to My Portfolio
         </Heading>
         <Text fontSize="lg" mb={4}>
@@ -43,11 +46,6 @@ const Home = () => {
           Explore my latest projects, learn more about my skills, and feel free to reach out if
           you’d like to collaborate or discuss potential opportunities.
         </Text>
-        <Link to="/projects">
-          <Button colorScheme="green" variant="solid" bg={buttonColor} px={8}>
-            View My Projects
-          </Button>
-        </Link>
       </Flex>
     </Box>
   );

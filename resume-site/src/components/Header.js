@@ -6,11 +6,13 @@ import { Box, Flex, Button, Link, useColorModeValue } from '@chakra-ui/react';
 const ButtonLink = ({ href, label, bg, color }) => (
   <Link href={href} style={{ textDecoration: 'none' }}>
     <Button
-      variant="ghost"
-      bg={bg}
+      variant="link"
       color={color}
       width="120px"
       _hover={{ bg: bg, opacity: 0.8 }}
+      borderRight="1px Solid"
+      borderLeft="1px Solid"
+      borderColor={"white"}
     >
       {label}
     </Button>
@@ -18,7 +20,7 @@ const ButtonLink = ({ href, label, bg, color }) => (
 );
 
 const Header = () => {
-  const headerBackground = useColorModeValue('brand.backgroundSecondary', '#6A7164');
+  const headerBackground = useColorModeValue('brand.highlightSecondary', '#6A7164');
   const buttonBackground = useColorModeValue('brand.highlight', '#EDF0E5');
   const textColor = useColorModeValue('brand.background', '#000000');
 
@@ -28,10 +30,12 @@ const Header = () => {
       bg={headerBackground}
       padding="4"
       align="center"
-      justify="center"
+      justify="right"
       position="sticky"
       top="0"
       zIndex="10"
+      borderBottom="1px Solid"
+      borderColor={textColor}
     >
       <Box
         color={textColor}
@@ -46,7 +50,6 @@ const Header = () => {
       <Flex gap="4">
         {/* Update ButtonLink components to ensure hash routing consistency */}
         <ButtonLink href="#/" label="Home" bg={buttonBackground} color={textColor} />
-        <ButtonLink href="#/about" label="About" bg={buttonBackground} color={textColor} />
         <ButtonLink href="#/projects" label="Projects" bg={buttonBackground} color={textColor} />
       </Flex>
     </Flex>

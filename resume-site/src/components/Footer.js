@@ -3,12 +3,25 @@ import React from 'react';
 import { Box, Flex, Text, Link, useColorModeValue } from '@chakra-ui/react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
+
 const Footer = () => {
-  const footerBackground = useColorModeValue('brand.backgroundSecondary', '#6A7164');
+  const footerBackground = useColorModeValue('brand.highlightSecondary', '#6A7164');
   const textColor = useColorModeValue('brand.background');
 
   return (
-    <Box bg={footerBackground} color={textColor} py={4}>
+    <Box
+      as="footer"
+      bg={footerBackground}
+      color={textColor}
+      py={4}
+      w="100vw" // Ensure the footer takes the full width of the viewport
+      position="fixed" // Position the footer at the bottom
+      bottom="0"
+      left="0" // Align the footer with the start of the viewport
+      zIndex="5" // Ensure the footer is above other elements if needed
+      borderTop="1px Solid"
+      borderColor={textColor}
+    >
       <Flex
         align="center"
         justify="space-between"
@@ -17,20 +30,11 @@ const Footer = () => {
         px={4}
         wrap="wrap"
       >
-        <Text fontSize="lg">
-          © 2024 Benjamin Bell
-        </Text>
+        <Text fontSize="md">© 2024 Benjamin Bell</Text>
 
         <Flex gap={4}>
-          {/* Update Links for Hash Routing */}
-          <Link href="#/" _hover={{ textDecoration: 'underline' }}>
-            Home
-          </Link>
-          <Link href="#/about" _hover={{ textDecoration: 'underline' }}>
+          <Link href="/Resume-Site/#/about" _hover={{ textDecoration: 'underline' }}>
             About
-          </Link>
-          <Link href="#/projects" _hover={{ textDecoration: 'underline' }}>
-            Projects
           </Link>
         </Flex>
 
