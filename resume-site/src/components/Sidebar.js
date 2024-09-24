@@ -1,54 +1,84 @@
 // src/components/Sidebar.js
 import React from 'react';
-import {Flex, Button, Link, Divider, useColorModeValue} from '@chakra-ui/react';
+import {
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  Button,
+  useDisclosure,
+  VStack,
+} from '@chakra-ui/react';
 
-// Reusable ButtonLink component styled as boxes
-const ButtonLink = ({ href, label, bg, color }) => (
-  <Link href={href} style={{ textDecoration: 'none', width: '100%' }}>
-    <Button
-      variant="ghost"
-      color={color}
-      width="100%" // Make the button full width
-      _hover={{ bg: bg, opacity: 0.8 }}
-      borderRadius="none" // Remove button border-radius to fit the box style
-      py="6" // Increase padding for a box-like appearance
-    >
-      {label}
-    </Button>
-  </Link>
+// Reusable button component for navigation links
+const NavLinkButton = ({ href, children, onClick }) => (
+  <Button
+    as="a"
+    href={href}
+    onClick={onClick}
+    w="100%"
+    bg="brand.highlightSecondary"
+    _hover={{ bg: 'brand.highlight' }}
+    color="white"
+  >
+    {children}
+  </Button>
 );
 
 const Sidebar = () => {
-  const sidebarBackground = useColorModeValue('brand.backgroundSecondary', '#6A7164');
-  const buttonBackground = useColorModeValue('brand.highlight', '#EDF0E5');
-  const textColor = useColorModeValue('brand.background', '#000000');
-  const borderColor = useColorModeValue('gray.300', 'gray.700');
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Flex
-      as="nav"
-      direction="column"
-      bg={sidebarBackground}
-      p="4"
-      h="100vh" // Ensures the sidebar extends fully from top to bottom
-      w="12.5vw" // 1/8th of the viewport width
-      position="sticky"
-      top="0"
-      borderRight="1px solid" // Add a border to the right side of the sidebar
-      borderColor={borderColor} // Dynamic border color based on theme
-    >
+    <>
+      {/* Button to open the sidebar */}
+      <Button
+        onClick={onOpen}
+        position="fixed"
+        zIndex="1000"
+        bg="brand.highlightSecondary"
+        _hover={{ bg: 'brand.highlight' }}
+        color="white"
+        fontSize="2xl"
+        height="7vh"
+        width="8vw"
+      >
+        Menu
+      </Button>
 
-      {/* Vertical Navigation Links with Dividers */}
-      <Flex direction="column" gap="0">
-        <Divider border="1px Solid" borderColor={borderColor} />
-        <ButtonLink href="/Resume-Site/#/" label="Home" bg={buttonBackground} color={textColor} />
-        <Divider border="1px Solid" borderColor={borderColor} /> {/* Add a horizontal line */}
-        <ButtonLink href="/Resume-Site/#/projects" label="Projects" bg={buttonBackground} color={textColor} />
-        <Divider border="1px Solid" borderColor={borderColor} />
-        <ButtonLink href="/Resume-Site/#/about" label="About" bg={buttonBackground} color={textColor} />
-        <Divider border="1px Solid" borderColor={borderColor} /> {/* Add a horizontal line */}
-      </Flex>
-    </Flex>
+      {/* Drawer component for the sidebar */}
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+        <DrawerOverlay />
+        <DrawerContent bg="brand.background">
+          <DrawerCloseButton />
+          <DrawerHeader
+            fontSize="3xl"
+            borderBottomWidth="1px"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            textAlign="center"
+          >
+            Menu
+          </DrawerHeader>
+          <DrawerBody>
+            <VStack align="start" spacing={4} w="100%">
+              {/* Navigation links using the reusable NavLinkButton component */}
+              <NavLinkButton href="/Resume-Site/#/" onClick={onClose}>
+                Home
+              </NavLinkButton>
+              <NavLinkButton href="/Resume-Site/#/projects" onClick={onClose}>
+                Projects
+              </NavLinkButton>
+              <NavLinkButton href="/Resume-Site/#/about" onClick={onClose}>
+                About
+              </NavLinkButton>
+            </VStack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </>
   );
 };
 

@@ -3,7 +3,6 @@ import React from 'react';
 import { Box, Flex, Text, Link, useColorModeValue } from '@chakra-ui/react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
-
 const Footer = () => {
   const footerBackground = useColorModeValue('brand.highlightSecondary', '#6A7164');
   const textColor = useColorModeValue('brand.background');
@@ -14,22 +13,12 @@ const Footer = () => {
       bg={footerBackground}
       color={textColor}
       py={4}
-      w="100vw" // Ensure the footer takes the full width of the viewport
-      position="fixed" // Position the footer at the bottom
-      bottom="0"
-      left="0" // Align the footer with the start of the viewport
-      zIndex="5" // Ensure the footer is above other elements if needed
-      borderTop="1px Solid"
+      w="100%"
+      position="relative" // Change from 'fixed' to 'relative' to remove the sticky behavior
+      borderTop="1px solid"
       borderColor={textColor}
     >
-      <Flex
-        align="center"
-        justify="space-between"
-        maxW="1200px"
-        mx="auto"
-        px={4}
-        wrap="wrap"
-      >
+      <Flex align="center" justify="space-between" maxW="1200px" mx="auto" px={4} wrap="wrap">
         <Text fontSize="md">© 2024 Benjamin Bell</Text>
 
         <Flex gap={4}>

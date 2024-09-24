@@ -15,16 +15,14 @@ function App() {
                       "sidebar main"
                       "footer footer"`}
       gridTemplateRows="auto 1fr auto"
-      gridTemplateColumns="12.5vw 1fr"
+      gridTemplateColumns="auto 1fr"
       minHeight="100vh"
-      overflowX="hidden" // Prevents horizontal overflow on the main grid
+      overflowX="hidden"
     >
       <Box gridArea="header">
         <Header />
       </Box>
-      <Box gridArea="sidebar" position="relative" zIndex="1">
-        <Sidebar />
-      </Box>
+      <Sidebar /> {/* Sidebar will be hidden initially and slides out when toggled */}
       <Box
         gridArea="main"
         p="4"
@@ -34,7 +32,8 @@ function App() {
         w="100%"
         maxW="1200px"
         mx="auto"
-        overflowX="hidden" // Ensures no overflow occurs within the main content
+        overflowX="hidden"
+        flex="1"
       >
         <Routes>
           <Route path="/" element={<Home />} />
