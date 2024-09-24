@@ -14,19 +14,15 @@ const Footer = () => {
       color={textColor}
       py={4}
       w="100%"
-      position="relative" // Change from 'fixed' to 'relative' to remove the sticky behavior
+      position="relative"  // This ensures it stays in the document flow
       borderTop="1px solid"
       borderColor={textColor}
     >
       <Flex align="center" justify="space-between" maxW="1200px" mx="auto" px={4} wrap="wrap">
         <Text fontSize="md">© 2024 Benjamin Bell</Text>
-
         <Flex gap={4}>
-          <Link href="/Resume-Site/#/about" _hover={{ textDecoration: 'underline' }}>
-            About
-          </Link>
+          <Link href="/Resume-Site/#/resume" _hover={{ textDecoration: 'underline' }}>About</Link>
         </Flex>
-
         <Flex gap={4}>
           <Link href="https://github.com/Benjaminatedu" isExternal>
             <FaGithub size="20px" />

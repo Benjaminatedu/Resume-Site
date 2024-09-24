@@ -71,8 +71,8 @@ const Sidebar = () => {
               <NavLinkButton href="/Resume-Site/#/projects" onClick={onClose}>
                 Projects
               </NavLinkButton>
-              <NavLinkButton href="/Resume-Site/#/about" onClick={onClose}>
-                About
+              <NavLinkButton href="/Resume-Site/#/resume" onClick={onClose}>
+                Resume
               </NavLinkButton>
             </VStack>
           </DrawerBody>
