@@ -3,10 +3,35 @@ import React from 'react';
 import { Box, Grid, Text } from '@chakra-ui/react';
 import ProjectCard from '../components/ProjectCard'; // Import the ProjectCard component
 import projects from '../components/ProjectList'; // Correctly import the project list
+import topography from '../assets/aaabstractlight.webp'; // Ensure this path is correct
 
 const Projects = () => {
   return (
-    <Box p={6}>
+    <Box
+      p={6}
+      minHeight="100vh"
+      position="relative"
+      bg="transparent"
+      color="black"
+      overflowX="hidden"
+    >
+      {/* Background Image Layer */}
+      <Box
+        as="section"
+        position="fixed"
+        top="0"
+        left="0"
+        width="100vw"
+        height="100vh"
+        bgImage={`url(${topography})`}
+        bgSize="cover"
+        bgRepeat="repeat"
+        bgPosition="center"
+        opacity="1"
+        zIndex="-1"
+        pointerEvents="none"
+      />
+
       <Text fontSize="3xl" fontWeight="bold" textAlign="center" mb={6}>
         My Projects
       </Text>

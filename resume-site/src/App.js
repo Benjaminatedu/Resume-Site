@@ -18,11 +18,12 @@ function App() {
       gridTemplateColumns="auto 1fr"
       minHeight="100vh"
       overflowX="hidden"
+      position="relative"
     >
-      <Box gridArea="header">
+      <Box gridArea="header" zIndex="2" position="relative"> {/* Adjust z-index to ensure visibility */}
         <Header />
       </Box>
-      <Sidebar /> {/* Sidebar will be hidden initially and slides out when toggled */}
+      <Sidebar />
       <Box
         gridArea="main"
         p="4"
@@ -34,6 +35,7 @@ function App() {
         mx="auto"
         overflowX="hidden"
         flex="1"
+        zIndex="1"
       >
         <Routes>
           <Route path="/" element={<Home />} />
@@ -41,7 +43,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
         </Routes>
       </Box>
-      <Box gridArea="footer" w="100%">
+      <Box gridArea="footer" w="100%" zIndex="1">
         <Footer />
       </Box>
     </Grid>
