@@ -33,28 +33,39 @@ const Home = () => {
         pointerEvents="none"
       />
 
-      {/* Header and Typewriter Text positioned higher and further to the right */}
+      {/* Header and Typewriter Text positioned higher with responsive scaling */}
       <Flex
         align="baseline"
         mb={4}
         position="absolute"
-        top="10%" // Adjust this value to position it higher on the screen
+        top="5%" // Adjust this value to control how high it appears on the screen
+        right="10%" // Optional: adjust if you want slight right alignment
         zIndex="2"
       >
-        <Heading as="h1" fontSize="4xl" fontWeight='regular' mr={2} color={textColor}>
+        <Heading
+          as="h1"
+          fontSize={{ base: '6vw', md: '3xl', lg: '4xl' }} // Responsive font sizes for scaling
+          fontWeight="bold"
+          mr={2}
+          color={textColor}
+        >
           Benjamin Bell:
         </Heading>
 
-        {/* Typewriter Text Container with fixed width */}
+        {/* Typewriter Text Container with responsive font size */}
         <Box
           display="flex"
           alignItems="baseline"
-          width="250px" // Fixed width based on the longest word
+          width={{ base: '150px', md: '250px' }} // Adjust width responsively
           height="48px"
           textAlign="left"
           whiteSpace="nowrap"
         >
-          <TypewriterText color={textColor} fontSize="4xl" fontWeight="light" />
+          <TypewriterText
+            color={textColor}
+            fontSize={{ base: '6vw', md: '3xl', lg: '4xl' }} // Match responsive scaling
+            fontWeight="bold"
+          />
         </Box>
       </Flex>
 
