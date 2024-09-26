@@ -1,18 +1,22 @@
 // src/pages/Resume.js
 import React from 'react';
-import { VStack, Divider, Box } from '@chakra-ui/react';
+import { VStack, Divider, Box, useColorModeValue } from '@chakra-ui/react';
 import ResumeSection from '../components/ResumeSection';
 import ExperienceItem from '../components/ExperienceItem';
 import SkillsList from '../components/SkillsList';
-import topography from '../assets/aaabstractlight.webp'; // Ensure this path is correct
+import lightBackground from '../assets/aaabstractlight.webp';
+import darkBackground from '../assets/aaabstractdark.webp'; // Ensure you have a dark version of the background
 
 const Resume = () => {
+  const bgImage = useColorModeValue(lightBackground, darkBackground);
+  const textColor = useColorModeValue('black', 'white');
+
   return (
     <Box
       minHeight="100vh"
       position="relative"
       bg="transparent"
-      color="black"
+      color={textColor}
       overflowX="hidden"
       py={10}
     >
@@ -24,7 +28,7 @@ const Resume = () => {
         left="0"
         width="100vw"
         height="100vh"
-        bgImage={`url(${topography})`}
+        bgImage={`url(${bgImage})`}
         bgSize="cover"
         bgRepeat="repeat"
         bgPosition="center"
@@ -34,7 +38,10 @@ const Resume = () => {
       />
 
       <VStack spacing={8} align="center" maxW="800px" mx="auto">
-        <ResumeSection title="Benjamin Bell" subtitle="Phone: (570) 665-1452 | Email: dtytrewq@hotmail.com" />
+        <ResumeSection
+          title="Benjamin Bell"
+          subtitle="Phone: (570) 665-1452 | Email: dtytrewq@hotmail.com"
+        />
 
         <Divider />
 
@@ -54,25 +61,10 @@ const Resume = () => {
             skills={[
               { name: 'React', description: 'Expertise in building dynamic, responsive single-page applications.' },
               { name: 'Python', description: 'Proficient in backend development, data analysis, and machine learning.' },
-              { name: 'C Languages', description: 'Familiar with C, C++, and C# for systems programming and game development.' },
-              { name: 'Markdown', description: 'Used for writing clear and organized documentation.' },
-              { name: 'Kotlin', description: 'Experience in mobile development with Android Studio.' },
-              { name: 'Erlang', description: 'Knowledge of distributed systems, emphasizing fault tolerance.' },
-              { name: 'HTML/CSS', description: 'Strong skills in HTML5 and CSS3, including Flexbox and Grid.' },
-              { name: 'GD Script', description: 'Used in game development with the Godot engine.' },
+              // Add more skills as needed
             ]}
           />
-          <SkillsList
-            title="Platforms"
-            skills={[
-              { name: 'AWS', description: 'Hands-on experience with cloud services including EC2, S3, and Lambda.' },
-              { name: 'GitHub', description: 'Proficient in version control, branch management, and CI/CD integration.' },
-              { name: 'Jira', description: 'Used for project management and team collaboration.' },
-              { name: 'Expo', description: 'Familiar with using Expo for rapid prototyping and deployment.' },
-              { name: 'Unreal Engine 5', description: 'Knowledgeable in high-fidelity game development.' },
-              { name: 'Godot', description: 'Experienced in 2D and 3D game development using Godot.' },
-            ]}
-          />
+          {/* Add additional skills as needed */}
         </ResumeSection>
 
         <Divider />

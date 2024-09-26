@@ -2,17 +2,14 @@
 import React from 'react';
 import { Box, Flex, Text, Link } from '@chakra-ui/react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { gradients, colors } from '../theme/themes'; // Import gradients and colors from the theme file
 
 const Footer = () => {
-  // Apply the vertical gradient from #0A654E to #20A76E
-  const footerGradient = 'linear(to-b, #0A654E, #20A76E)'; // Gradient direction from top to bottom
-  const textColor = '#FFFFFF'; // White text for good contrast against the gradient
-
   return (
     <Box
       as="footer"
-      bgGradient={footerGradient} // Apply the gradient background
-      color={textColor}
+      bgGradient={gradients.footerGradient} // Use the modular gradient
+      color={colors.textColor}
       py={4}
       w="100%"
       borderTop="1px solid"
@@ -24,8 +21,9 @@ const Footer = () => {
           <Link
             href="/resume"
             _hover={{
-              transform: 'scale(1.5)', // Scale up on hover
-              transition: 'transform 0.4s ease-in-out', // Smooth transition
+              textDecoration: 'underline',
+              transform: 'scale(1.1)', // Scale up on hover
+              transition: 'transform 0.2s ease-in-out', // Smooth transition
             }}
           >
             <Text fontWeight="bold">Resume</Text>
@@ -36,8 +34,8 @@ const Footer = () => {
             href="https://github.com/Benjaminatedu"
             isExternal
             _hover={{
-              transform: 'scale(1.5)', // Scale up on hover
-              transition: 'transform 0.4s ease-in-out', // Smooth transition
+              transform: 'scale(1.1)', // Scale up on hover
+              transition: 'transform 0.2s ease-in-out', // Smooth transition
             }}
           >
             <FaGithub size="20px" />
@@ -46,8 +44,8 @@ const Footer = () => {
             href="https://www.linkedin.com/in/benjamin-bell-11231b230/"
             isExternal
             _hover={{
-              transform: 'scale(1.5)', // Scale up on hover
-              transition: 'transform 0.4s ease-in-out', // Smooth transition
+              transform: 'scale(1.1)', // Scale up on hover
+              transition: 'transform 0.2s ease-in-out', // Smooth transition
             }}
           >
             <FaLinkedin size="20px" />

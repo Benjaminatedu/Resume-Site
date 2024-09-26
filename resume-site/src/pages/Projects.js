@@ -1,18 +1,22 @@
 // src/pages/Projects.js
 import React from 'react';
-import { Box, Grid, Text } from '@chakra-ui/react';
-import ProjectCard from '../components/ProjectCard'; // Import the ProjectCard component
-import projects from '../components/ProjectList'; // Correctly import the project list
-import topography from '../assets/aaabstractlight.webp'; // Ensure this path is correct
+import { Box, Grid, Text, useColorModeValue } from '@chakra-ui/react';
+import ProjectCard from '../components/ProjectCard';
+import projects from '../components/ProjectList';
+import lightBackground from '../assets/aaabstractlight.webp';
+import darkBackground from '../assets/aaabstractdark.webp'; // Ensure you have a dark version of the background
 
 const Projects = () => {
+  const bgImage = useColorModeValue(lightBackground, darkBackground);
+  const textColor = useColorModeValue('black', 'white');
+
   return (
     <Box
       p={6}
       minHeight="100vh"
       position="relative"
       bg="transparent"
-      color="black"
+      color={textColor}
       overflowX="hidden"
     >
       {/* Background Image Layer */}
@@ -23,7 +27,7 @@ const Projects = () => {
         left="0"
         width="100vw"
         height="100vh"
-        bgImage={`url(${topography})`}
+        bgImage={`url(${bgImage})`}
         bgSize="cover"
         bgRepeat="repeat"
         bgPosition="center"

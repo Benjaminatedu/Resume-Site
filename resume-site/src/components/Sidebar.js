@@ -9,7 +9,9 @@ import {
   DrawerCloseButton,
   VStack,
   Button,
+  useColorModeValue,
 } from '@chakra-ui/react';
+import { gradients } from '../theme/themes'; // Import gradients from your theme file
 
 // Reusable button component for navigation links
 const NavLinkButton = ({ href, children, onClick }) => (
@@ -27,10 +29,14 @@ const NavLinkButton = ({ href, children, onClick }) => (
 );
 
 const Sidebar = ({ isOpen, onClose }) => {
+  // Define fully opaque backgrounds to avoid translucency
+  const drawerBg = useColorModeValue('brand.background', 'brand.backgroundSecondary');
+  const headerGradient = gradients.headerGradient;
+
   return (
     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
       <DrawerOverlay />
-      <DrawerContent bg="brand.background">
+      <DrawerContent bg={drawerBg}>
         <DrawerCloseButton />
         <DrawerHeader
           fontSize="3xl"
@@ -39,10 +45,11 @@ const Sidebar = ({ isOpen, onClose }) => {
           justifyContent="center"
           alignItems="center"
           textAlign="center"
+          bgGradient={headerGradient} // Use the same gradient as the header
         >
           Menu
         </DrawerHeader>
-        <DrawerBody bg="brand.background">
+        <DrawerBody bg={drawerBg}>
           <VStack align="start" spacing={4} w="100%">
             {/* Navigation links using the reusable NavLinkButton component */}
             <NavLinkButton href="/Resume-Site/#/" onClick={onClose}>

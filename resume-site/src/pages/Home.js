@@ -1,11 +1,12 @@
-// src/pages/Home.js
 import React from 'react';
 import { Box, Heading, Text, Flex, useColorModeValue } from '@chakra-ui/react';
-import topography from '../assets/aaabstractlight.webp'; // Ensure this path is correct
-import TypewriterText from '../components/TypewriterText'; // Import the TypewriterText component
+import TypewriterText from "../components/TypewriterText"
+import lightBackground from '../assets/aaabstractlight.webp';
+import darkBackground from '../assets/aaabstractdark.webp'; // Ensure you have the dark version
 
 const Home = () => {
-  const textColor = useColorModeValue('grey');
+  const textColor = useColorModeValue('grey', 'white');
+  const bgImage = useColorModeValue(lightBackground, darkBackground);
 
   return (
     <Box
@@ -25,7 +26,7 @@ const Home = () => {
         left="0"
         w="100vw"
         h="100vh"
-        bgImage={`url(${topography})`}
+        bgImage={`url(${bgImage})`}
         bgSize="cover"
         bgRepeat="repeat"
         bgPosition="center"

@@ -1,54 +1,60 @@
 // src/components/Header.js
 import React from 'react';
-import { Flex, Button, useDisclosure } from '@chakra-ui/react';
+import { Flex, Button, useDisclosure, Box } from '@chakra-ui/react';
 import Sidebar from './Sidebar'; // Import Sidebar to use its drawer
+import { gradients } from '../theme/themes'; // Import gradients from the theme file
+import ColorModeSwitcher from './ColorModeSwitcher'; // Correctly import as default
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  // Define gradient backgrounds using updated colors for vertical direction
-  const headerGradient = 'linear(to-b, #0A654E, #20A76E)';
-
   return (
     <Flex
       as="header"
-      bgGradient={headerGradient}
+      bgGradient={gradients.headerGradient}
       padding="4"
       align="center"
-      justify="center" // Adjust to place content on opposite sides
+      justify="center" // Center the content
       position="sticky"
       top="0"
       zIndex="10"
       borderBottom="1px solid"
       borderColor="rgba(255, 255, 255, 0.3)"
       height="7vh"
-      >
-      {/* Menu Button modified for transparency */}
+    >
+      {/* Box to help position elements independently */}
+      <Box position="absolute" left="1rem">
+        <Sidebar isOpen={isOpen} onClose={onClose} />
+      </Box>
+
+      {/* Centered Menu Button */}
       <Button
         onClick={onOpen}
         bg="transparent"
         _hover={{
-          bg: 'transparent', // Ensures it remains transparent on hover
-          transform: 'scale(1.5)', // Scales text on hover
-          transition: 'transform 0.4s ease-in-out',
+          bg: 'transparent',
+          transform: 'scale(1.1)',
+          transition: 'transform 0.2s ease-in-out',
         }}
         _active={{
-          transform: 'scale(0.95)', 
-          transition: 'transform 0.4s ease-in-out',
+          transform: 'scale(0.95)',
+          transition: 'transform 0.1s ease-in-out',
         }}
         color="white"
-        fontSize="3xl"
+        fontSize="lg"
         height="7vh"
         width="8vw"
-        transition="all 0.4s ease-in-out"
-        border="none" // Removes any borders
-        boxShadow="none" // Removes any default button shadows
+        transition="all 0.2s ease-in-out"
+        border="none"
+        boxShadow="none"
       >
         Menu
       </Button>
 
-      {/* Include Sidebar with its drawer controlled from Header */}
-      <Sidebar isOpen={isOpen} onClose={onClose} />
+      {/* Positioned Color Mode Switcher */}
+      <Box position="absolute" right="1rem">
+        <ColorModeSwitcher />
+      </Box>
     </Flex>
   );
 };

@@ -1,16 +1,19 @@
 // src/components/ProjectCard.js
 import React from 'react';
-import { Box, Image, Text, Link, GridItem } from '@chakra-ui/react';
+import { Box, Image, Text, Link, GridItem, useColorModeValue } from '@chakra-ui/react';
 
 const ProjectCard = ({ title, description, imageUrl, url }) => {
-  // Define the gradient background similar to header and footer
-  const cardGradient = 'linear(to-t, #0A654E, #20A76E)';
-  const textColor = '#FFFFFF'; // White text to ensure readability on the gradient
+  // Define gradients and text colors based on the current color mode
+  const cardGradient = useColorModeValue(
+    'linear(to-r, #0A654E, #20A76E)', // Light mode gradient
+    'linear(to-r, #1A202C, #2D3748)'  // Dark mode gradient
+  );
+  const textColor = useColorModeValue('black', 'white');
 
   return (
     <Link href={url} isExternal _hover={{ textDecoration: 'none' }}>
       <GridItem
-        bgGradient={cardGradient} // Apply the gradient background
+        bgGradient={cardGradient} // Apply the dynamic gradient background
         borderRadius="md"
         overflow="hidden"
         boxShadow="md"
