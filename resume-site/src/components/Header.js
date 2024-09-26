@@ -8,7 +8,7 @@ const Header = () => {
 
   // Define gradient backgrounds using updated colors for vertical direction
   const headerGradient = 'linear(to-b, #0A654E, #20A76E)';
-  
+
   return (
     <Flex
       as="header"
@@ -22,20 +22,27 @@ const Header = () => {
       borderBottom="1px solid"
       borderColor="rgba(255, 255, 255, 0.3)"
       height="7vh"
-    >
-
-      {/* Menu Button moved to Header */}
+      >
+      {/* Menu Button modified for transparency */}
       <Button
         onClick={onOpen}
-        bgGradient="linear(to-b, #0A654E, #20A76E)"
-        _hover={{ bgGradient: 'linear(to-b, #0A654E, #20A76E)', transform: 'scale(1.05)', transition: 'transform 0.2s ease-in-out' }}
-        _active={{ transform: 'scale(0.95)', transition: 'transform 0.1s ease-in-out' }}
+        bg="transparent"
+        _hover={{
+          bg: 'transparent', // Ensures it remains transparent on hover
+          transform: 'scale(1.5)', // Scales text on hover
+          transition: 'transform 0.4s ease-in-out',
+        }}
+        _active={{
+          transform: 'scale(0.95)', 
+          transition: 'transform 0.4s ease-in-out',
+        }}
         color="white"
-        fontSize="lg"
+        fontSize="3xl"
         height="7vh"
         width="8vw"
-        transition="all 0.2s ease-in-out"
-        background='transparent'
+        transition="all 0.4s ease-in-out"
+        border="none" // Removes any borders
+        boxShadow="none" // Removes any default button shadows
       >
         Menu
       </Button>
