@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/Resume-Site/static/js/main.d8242f24.js",
+    "main.js": "/Resume-Site/static/js/main.78de6990.js",
     "static/js/453.04fa46cf.chunk.js": "/Resume-Site/static/js/453.04fa46cf.chunk.js",
     "static/media/aaabstractlight.webp": "/Resume-Site/static/media/aaabstractlight.9f08df07f56370e56aaf.webp",
     "index.html": "/Resume-Site/index.html",
-    "main.d8242f24.js.map": "/Resume-Site/static/js/main.d8242f24.js.map",
+    "main.78de6990.js.map": "/Resume-Site/static/js/main.78de6990.js.map",
     "453.04fa46cf.chunk.js.map": "/Resume-Site/static/js/453.04fa46cf.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.d8242f24.js"
+    "static/js/main.78de6990.js"
   ]
 }
