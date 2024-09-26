@@ -35,6 +35,7 @@ const Header = () => {
         height="7vh"
         width="8vw"
         transition="all 0.2s ease-in-out"
+        background='transparent'
       >
         Menu
       </Button>

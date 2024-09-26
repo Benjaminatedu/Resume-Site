@@ -1,26 +1,37 @@
 // src/theme/themes.js
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, keyframes } from '@chakra-ui/react';
 
 const colors = {
   brand: {
-    primary: '#EDF0E5',             // Light, soft green-grey
-    secondary: '#D5DBCC',           // A slightly darker variation for contrast
-    background: '#EDF0E5',          // Page background
-    backgroundSecondary: '#117D62', // Dark olive green for the header
-    text: '#201513',                // Black text for high contrast
-    textSecondary: '#252B23',       // Darker grey-green for less emphasis
-    highlight: '#117D62',           // Medium green for highlighting elements
-    highlightSecondary: '#0D1951',  // A slightly muted green for subtle highlights
+    primary: '#EDF0E5',
+    secondary: '#D5DBCC',
+    background: '#EDF0E5',
+    backgroundSecondary: '#117D62',
+    text: '#201513',
+    textSecondary: '#252B23',
+    highlight: '#117D62',
+    highlightSecondary: '#0D1951',
   },
 };
+
+// Define the blinking cursor animation using Chakra's keyframes utility
+const blink = keyframes`
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+`;
 
 const theme = extendTheme({
   colors,
   styles: {
     global: {
       'html, body': {
-        bg: 'brand.background',     // Light background for readability
-        color: 'brand.text',        // Set text to black for strong contrast
+        bg: 'brand.background',
+        color: 'brand.text',
+      },
+      // Apply the animation globally or to specific classes as needed
+      '.blink': {
+        animation: `${blink} 1s step-end infinite`,
       },
     },
   },
