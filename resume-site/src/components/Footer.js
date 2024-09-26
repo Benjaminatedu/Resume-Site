@@ -21,15 +21,35 @@ const Footer = () => {
       <Flex align="center" justify="space-between" maxW="1200px" mx="auto" px={4}>
         <Text fontSize="md">© 2024 Benjamin Bell</Text>
         <Flex gap={4}>
-          <Link href="/resume" _hover={{ textDecoration: 'underline' }}>
+          <Link
+            href="/resume"
+            _hover={{
+              transform: 'scale(1.5)', // Scale up on hover
+              transition: 'transform 0.4s ease-in-out', // Smooth transition
+            }}
+          >
             <Text fontWeight="bold">Resume</Text>
           </Link>
         </Flex>
         <Flex gap={4}>
-          <Link href="https://github.com/Benjaminatedu" isExternal>
+          <Link
+            href="https://github.com/Benjaminatedu"
+            isExternal
+            _hover={{
+              transform: 'scale(1.5)', // Scale up on hover
+              transition: 'transform 0.4s ease-in-out', // Smooth transition
+            }}
+          >
             <FaGithub size="20px" />
           </Link>
-          <Link href="https://www.linkedin.com/in/benjamin-bell-11231b230/" isExternal>
+          <Link
+            href="https://www.linkedin.com/in/benjamin-bell-11231b230/"
+            isExternal
+            _hover={{
+              transform: 'scale(1.5)', // Scale up on hover
+              transition: 'transform 0.4s ease-in-out', // Smooth transition
+            }}
+          >
             <FaLinkedin size="20px" />
           </Link>
         </Flex>

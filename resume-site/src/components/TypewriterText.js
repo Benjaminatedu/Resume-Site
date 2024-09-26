@@ -9,7 +9,7 @@ const TypewriterText = ({ color = 'inherit', fontSize = '4xl', fontWeight = 'bol
   const [text, setText] = useState('');
   const [index, setIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const typingSpeed = 250;
+  const typingSpeed = 200;
   const deletingSpeed = 100;
   const pauseDuration = 1000;
 
