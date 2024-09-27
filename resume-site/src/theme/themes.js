@@ -1,9 +1,8 @@
-// src/theme/themes.js
-import { extendTheme, keyframes } from '@chakra-ui/react';
+import { extendTheme } from '@chakra-ui/react';
 
 export const gradients = {
   headerGradient: 'linear(to-b, #0A654E, #20A76E)',
-  footerGradient: 'linear(to-t, #20A76E, #0A654E)',
+  footerGradient: 'linear(to-b, #20A76E, #0A654E)',
 };
 
 export const colors = {
@@ -24,11 +23,13 @@ export const colors = {
     background: '#171923',
     backgroundSecondary: '#2C5282',
     text: '#F7FAFC',
-    textColor: '#A0AEC0',
+    textColor: '#2F3937',
     textSecondary: '#E2E8F0',
     highlight: '#2C5282',
     highlightSecondary: '#4A5568',
   },
+  // Shared header and footer color that is consistent across themes
+  headerFooter: '#FFFFFF', // Example color, set this to your desired header/footer color
 };
 
 const theme = extendTheme({

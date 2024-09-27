@@ -1,4 +1,3 @@
-// src/pages/Projects.js
 import React from 'react';
 import { Box, Grid, Text, useColorModeValue } from '@chakra-ui/react';
 import ProjectCard from '../components/ProjectCard';
@@ -7,8 +6,10 @@ import lightBackground from '../assets/aaabstractlight.webp';
 import darkBackground from '../assets/aaabstractdark.webp'; // Ensure you have a dark version of the background
 
 const Projects = () => {
+  // Dynamically set the background image based on the color mode
   const bgImage = useColorModeValue(lightBackground, darkBackground);
-  const textColor = useColorModeValue('black', 'white');
+  // Use theme colors for text dynamically
+  const textColor = useColorModeValue('light.text', 'dark.text');
 
   return (
     <Box
@@ -16,7 +17,7 @@ const Projects = () => {
       minHeight="100vh"
       position="relative"
       bg="transparent"
-      color={textColor}
+      color={textColor} // Set text color from theme
       overflowX="hidden"
     >
       {/* Background Image Layer */}

@@ -9,24 +9,27 @@ const Footer = () => {
     <Box
       as="footer"
       bgGradient={gradients.footerGradient} // Use the modular gradient
-      color={colors.textColor}
-      py={4}
+      color={colors.headerFooter}
+      py={{ base: 2, md: 3 }} // Use small responsive padding values
       w="100%"
       borderTop="1px solid"
       borderColor="rgba(255, 255, 255, 0.3)" // Subtle border for a clean finish
+      height={{ base: '60px', md: '50px' }} // Use fixed heights with small adjustments
     >
-      <Flex align="center" justify="space-between" maxW="1200px" mx="auto" px={4}>
-        <Text fontSize="md">© 2024 Benjamin Bell</Text>
+      <Flex align="center" justify="space-between" maxW="1200px" mx="auto" px={{ base: 2, md: 4 }}>
+        <Text fontSize={{ base: 'sm', md: 'md' }}>© 2024 Benjamin Bell</Text>
         <Flex gap={4}>
           <Link
             href="/resume"
             _hover={{
               textDecoration: 'underline',
-              transform: 'scale(1.1)', // Scale up on hover
+              transform: 'scale(1.05)', // Slight scaling on hover
               transition: 'transform 0.2s ease-in-out', // Smooth transition
             }}
           >
-            <Text fontWeight="bold">Resume</Text>
+            <Text fontWeight="bold" fontSize={{ base: 'sm', md: 'md' }}>
+              Resume
+            </Text>
           </Link>
         </Flex>
         <Flex gap={4}>
@@ -34,21 +37,21 @@ const Footer = () => {
             href="https://github.com/Benjaminatedu"
             isExternal
             _hover={{
-              transform: 'scale(1.1)', // Scale up on hover
+              transform: 'scale(1.05)', // Slight scaling on hover
               transition: 'transform 0.2s ease-in-out', // Smooth transition
             }}
           >
-            <FaGithub size="20px" />
+            <FaGithub size="20px" /> {/* Set icon size to a controlled, fixed value */}
           </Link>
           <Link
             href="https://www.linkedin.com/in/benjamin-bell-11231b230/"
             isExternal
             _hover={{
-              transform: 'scale(1.1)', // Scale up on hover
+              transform: 'scale(1.05)', // Slight scaling on hover
               transition: 'transform 0.2s ease-in-out', // Smooth transition
             }}
           >
-            <FaLinkedin size="20px" />
+            <FaLinkedin size="20px" /> {/* Set icon size to a controlled, fixed value */}
           </Link>
         </Flex>
       </Flex>

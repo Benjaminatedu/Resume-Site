@@ -1,12 +1,16 @@
+// src/pages/Home.js
 import React from 'react';
-import { Box, Heading, Text, Flex, useColorModeValue } from '@chakra-ui/react';
-import TypewriterText from "../components/TypewriterText"
+import { Box, Heading, Flex, useColorModeValue, Image } from '@chakra-ui/react';
+import TypewriterText from '../components/TypewriterText';
 import lightBackground from '../assets/aaabstractlight.webp';
-import darkBackground from '../assets/aaabstractdark.webp'; // Ensure you have the dark version
+import darkBackground from '../assets/aaabstractdark.webp';
+import profileLight from '../assets/profilelight.PNG';
+import profileDark from '../assets/profiledark.PNG';
 
 const Home = () => {
   const textColor = useColorModeValue('grey', 'white');
   const bgImage = useColorModeValue(lightBackground, darkBackground);
+  const profileImage = useColorModeValue(profileLight, profileDark);
 
   return (
     <Box
@@ -27,70 +31,57 @@ const Home = () => {
         w="100vw"
         h="100vh"
         bgImage={`url(${bgImage})`}
-        bgSize="cover"
-        bgRepeat="repeat"
+        bgSize={{ base: 'cover', md: 'contain', lg: 'cover' }}
+        bgRepeat="no-repeat"
         bgPosition="center"
         zIndex="-1"
         pointerEvents="none"
       />
 
-      {/* Header and Typewriter Text positioned higher with responsive scaling */}
-      <Flex
-        align="baseline"
-        mb={4}
-        position="absolute"
-        top="5%" // Adjust this value to control how high it appears on the screen
-        right="10%" // Optional: adjust if you want slight right alignment
-        zIndex="2"
-      >
-        <Heading
-          as="h1"
-          fontSize={{ base: '6vw', md: '3xl', lg: '4xl' }} // Responsive font sizes for scaling
-          fontWeight="bold"
-          mr={2}
-          color={textColor}
-        >
-          Benjamin Bell:
-        </Heading>
-
-        {/* Typewriter Text Container with responsive font size */}
-        <Box
-          display="flex"
-          alignItems="baseline"
-          width={{ base: '150px', md: '250px' }} // Adjust width responsively
-          height="48px"
-          textAlign="left"
-          whiteSpace="nowrap"
-        >
-          <TypewriterText
-            color={textColor}
-            fontSize={{ base: '6vw', md: '3xl', lg: '4xl' }} // Match responsive scaling
-            fontWeight="bold"
-          />
-        </Box>
-      </Flex>
-
       {/* Main Content Section */}
       <Flex
-        align="center"
-        justify="center"
-        flexDirection="column"
-        textAlign="center"
-        maxWidth="600px"
-        mx="auto"
-        minHeight="100vh"
-        position="relative"
+        direction={{ base: 'column', md: 'row' }} // Stack column on small screens, row on larger
+        align={{ base: 'center', md: 'flex-start' }} // Center align on small, align to the top on larger
+        justify="space-between"
+        px={{ base: 6, md: 10 }}
+        width="100vw"
+        height="100vh"
+        pt={{ base: 16, md: 24 }} // Increase top padding to move content down
         zIndex="1"
       >
-        <Text fontSize="lg" mb={4}>
-          Hi, I’m Benjamin Bell, a passionate software developer with a knack for designing intuitive
-          and functional web applications. I specialize in front-end and back-end development,
-          bringing creative ideas to life with clean, efficient code.
-        </Text>
-        <Text fontSize="md" mb={6}>
-          Explore my latest projects, learn more about my skills, and feel free to reach out if
-          you’d like to collaborate or discuss potential opportunities.
-        </Text>
+        {/* Header and Typewriter Text positioned on the top */}
+        <Flex
+          flexDirection="row" // Set to row to align the text and typewriter on the same line
+          alignItems="center" // Center-align items vertically
+          mb={{ base: 4, md: 0 }} // Add margin bottom on small screens
+        >
+          <Heading
+            as="h1"
+            fontSize={{ base: '6vw', md: '3xl', lg: '4xl' }}
+            fontWeight="bold"
+            mr={2} // Margin between heading and typewriter text
+            color={textColor}
+          >
+            Benjamin Bell:
+          </Heading>
+
+          {/* Typewriter Text aligned horizontally next to the header */}
+          <TypewriterText
+            color={textColor}
+            fontSize={{ base: '6vw', md: '3xl', lg: '4xl' }}
+            fontWeight="bold"
+          />
+        </Flex>
+
+        {/* Image positioned below the text on small screens */}
+        <Image
+          src={profileImage}
+          alt="Profile"
+          boxSize={{ base: '40vw', md: '25vw', lg: '20vw' }} // Scale image relative to viewport width
+          objectFit="cover"
+          borderRadius="full"
+          mt={{ base: 4, md: 0 }} // Add margin top on small screens to separate text and image
+        />
       </Flex>
     </Box>
   );

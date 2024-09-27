@@ -1,81 +1,36 @@
 // src/pages/Resume.js
 import React from 'react';
-import { VStack, Divider, Box, useColorModeValue } from '@chakra-ui/react';
-import ResumeSection from '../components/ResumeSection';
-import ExperienceItem from '../components/ExperienceItem';
-import SkillsList from '../components/SkillsList';
-import lightBackground from '../assets/aaabstractlight.webp';
-import darkBackground from '../assets/aaabstractdark.webp'; // Ensure you have a dark version of the background
+import { Box, Heading, useColorModeValue } from '@chakra-ui/react';
 
 const Resume = () => {
-  const bgImage = useColorModeValue(lightBackground, darkBackground);
-  const textColor = useColorModeValue('black', 'white');
+  const bgColor = useColorModeValue('light.background', 'dark.background');
+  const textColor = useColorModeValue('light.text', 'dark.text');
 
   return (
     <Box
+      p={4}
       minHeight="100vh"
-      position="relative"
-      bg="transparent"
-      color={textColor}
-      overflowX="hidden"
-      py={10}
+      bg={bgColor}
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
     >
-      {/* Background Image Layer */}
-      <Box
-        as="section"
-        position="fixed"
-        top="0"
-        left="0"
-        width="100vw"
-        height="100vh"
-        bgImage={`url(${bgImage})`}
-        bgSize="cover"
-        bgRepeat="repeat"
-        bgPosition="center"
-        opacity="1"
-        zIndex="-1"
-        pointerEvents="none"
+      {/* Header Section */}
+      <Heading as="h2" size="lg" mb={4} color={textColor} textAlign="center">
+        Welcome to my Resume
+      </Heading>
+
+      {/* Responsive iframe to display the PDF */}
+      <iframe
+        src="/Resume-Site/resume.pdf#zoom=page-width" // Ensures the PDF starts scaled to fit the width
+        style={{
+          width: '90vw', // Adjust to fit the viewport width responsively
+          height: '80vh', // Adjust to fit the viewport height responsively
+          border: 'none',
+        }}
+        title="Resume"
       />
-
-      <VStack spacing={8} align="center" maxW="800px" mx="auto">
-        <ResumeSection
-          title="Benjamin Bell"
-          subtitle="Phone: (570) 665-1452 | Email: dtytrewq@hotmail.com"
-        />
-
-        <Divider />
-
-        {/* Education Section */}
-        <ResumeSection title="Education">
-          <ExperienceItem
-            title="Brigham Young University-Idaho, Rexburg, Idaho"
-            details="Bachelor’s Degree – Software Engineering and Software Management"
-            date="September 2024"
-          />
-          <ExperienceItem
-            details="Computer Programming Certificate - 2023"
-            subtitle="Brigham Young University - Idaho Fall 2023 Hackathon"
-          />
-          <SkillsList
-            title="Programming Languages"
-            skills={[
-              { name: 'React', description: 'Expertise in building dynamic, responsive single-page applications.' },
-              { name: 'Python', description: 'Proficient in backend development, data analysis, and machine learning.' },
-              // Add more skills as needed
-            ]}
-          />
-          {/* Add additional skills as needed */}
-        </ResumeSection>
-
-        <Divider />
-
-        {/* Professional Experience Section */}
-        <ResumeSection title="Professional Experience">
-          {/* Add your experience items here */}
-        </ResumeSection>
-
-        <Divider />
-      </VStack>
     </Box>
   );
 };

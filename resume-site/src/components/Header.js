@@ -2,7 +2,7 @@
 import React from 'react';
 import { Flex, Button, useDisclosure, Box } from '@chakra-ui/react';
 import Sidebar from './Sidebar'; // Import Sidebar to use its drawer
-import { gradients } from '../theme/themes'; // Import gradients from the theme file
+import { gradients, colors } from '../theme/themes'; // Import gradients from the theme file
 import ColorModeSwitcher from './ColorModeSwitcher'; // Correctly import as default
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
     <Flex
       as="header"
       bgGradient={gradients.headerGradient}
-      padding="4"
+      padding={{ base: '2', md: '4' }} // Responsive padding
       align="center"
       justify="center" // Center the content
       position="sticky"
@@ -20,7 +20,7 @@ const Header = () => {
       zIndex="10"
       borderBottom="1px solid"
       borderColor="rgba(255, 255, 255, 0.3)"
-      height="7vh"
+      height={{ base: '10vh', md: '7vh' }} // Scale header height relative to the viewport
     >
       {/* Box to help position elements independently */}
       <Box position="absolute" left="1rem">
@@ -33,17 +33,17 @@ const Header = () => {
         bg="transparent"
         _hover={{
           bg: 'transparent',
-          transform: 'scale(1.1)',
-          transition: 'transform 0.2s ease-in-out',
+          transform: 'scale(1.1)', // Adjust scale for hover effect
+          transition: 'transform 0.4s ease-in-out',
         }}
         _active={{
           transform: 'scale(0.95)',
           transition: 'transform 0.1s ease-in-out',
         }}
-        color="white"
-        fontSize="lg"
-        height="7vh"
-        width="8vw"
+        color={colors.headerFooter}
+        fontSize={{ base: 'md', md: 'lg' }} // Responsive font size
+        height={{ base: '8vh', md: '7vh' }} // Scale button height relative to header
+        width={{ base: '12vw', md: '8vw' }} // Responsive button width
         transition="all 0.2s ease-in-out"
         border="none"
         boxShadow="none"

@@ -1,4 +1,3 @@
-// src/components/ProjectCard.js
 import React from 'react';
 import { Box, Image, Text, Link, GridItem, useColorModeValue } from '@chakra-ui/react';
 
@@ -8,7 +7,9 @@ const ProjectCard = ({ title, description, imageUrl, url }) => {
     'linear(to-r, #0A654E, #20A76E)', // Light mode gradient
     'linear(to-r, #1A202C, #2D3748)'  // Dark mode gradient
   );
-  const textColor = useColorModeValue('black', 'white');
+
+  // Connect text color to the theme
+  const textColor = useColorModeValue('light.text', 'dark.text'); // Uses theme colors
 
   return (
     <Link href={url} isExternal _hover={{ textDecoration: 'none' }}>
