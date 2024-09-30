@@ -22,4 +22,4 @@ const ColorModeSwitcher = () => {
   );
 };
 
-export default ColorModeSwitcher; // This line ensures it is a default export
+export default ColorModeSwitcher;

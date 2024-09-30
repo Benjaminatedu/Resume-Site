@@ -1,15 +1,18 @@
 // src/components/Footer.js
 import React from 'react';
-import { Box, Flex, Text, Link } from '@chakra-ui/react';
+import { Box, Flex, Text, Link, useColorModeValue } from '@chakra-ui/react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { gradients, colors } from '../theme/themes'; // Import gradients and colors from the theme file
+import { gradients } from '../theme/themes'; // Import gradients and colors from the theme file
 
 const Footer = () => {
+
+  const headerFooter = useColorModeValue('light.headerFooter', 'dark.headerFooter')
+
   return (
     <Box
       as="footer"
       bgGradient={gradients.footerGradient} // Use the modular gradient
-      color={colors.headerFooter}
+      color={headerFooter}
       py={{ base: 2, md: 3 }} // Use small responsive padding values
       w="100%"
       borderTop="1px solid"
