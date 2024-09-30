@@ -4,8 +4,8 @@ import TypewriterText from '../components/TypewriterText';
 import LanguageIcons from '../components/LanguageIcons'; // Import Language Icons component
 import lightBackground from '../assets/aaabstractlight.webp';
 import darkBackground from '../assets/aaabstractdark.webp';
-import profileLight from '../assets/profilelight.PNG';
-import profileDark from '../assets/profiledark.PNG';
+import profileLight from '../assets/profilelight.webp';
+import profileDark from '../assets/profiledark.webp';
 import headshotImage from '../assets/headshot.webp'; // WebP format headshot
 
 // Keyframes for animations
